@@ -1,4 +1,6 @@
-# BlackJack_project -- Work in Progress, core elements are working however there are still some bugs and additional features that need to be added.
+# BlackJack_project 
+
+**-- Work in Progress, core elements are working however there are still some bugs and additional features that need to be added.**
 
 The purpose of this project was to try and recreate some of the elements from the game blackjack. 
 
