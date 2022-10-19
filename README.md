@@ -2,7 +2,8 @@
 
 **-- Work in Progress, core elements are working however there are still some bugs and additional features that need to be added.**
 
-The purpose of this project was to try and recreate some of the elements from the game blackjack. 
+The purpose of this project was to try and recreate some of the elements from the game blackjack in the hopes of running some simulated situations and game strategies. 
+
 
 Within the blackjack directory are the main game files, these files establish the elements needed for a playable game. 
  
