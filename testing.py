@@ -8,7 +8,7 @@ deck = ShuffleDeckLw()()
 print( Hand([next(deck),next(deck)]))
 player.hand = Hand([next(deck),next(deck)], bet = player.bet)
 player.hand = Hand([next(deck),next(deck)])
-player.hand = Hand([next(deck),next(deck)])
+player.hand = Hand([next(deck),next(deck)]) 
 
 print(player.hand)
 print(player.hand[0].bet)
