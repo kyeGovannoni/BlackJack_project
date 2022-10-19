@@ -6,12 +6,18 @@ from basicstrategy import basic_strategy_hard_totals
 class Game:
     '''
     To initalise a game please include the player objects (dealer, player) and a game object (shuffler).
+    
+    The game handles the rules, the players, Split plays, the deck and the balances/payouts. 
+
+    A clock is used to keep track of the players turn.
+    Balance is used to deduct bets, allows for split plays and deactivate players from the next round who's balance is 0.
+    The move logic is also validated through the Game class.
     '''
 
     valid_moves = ['hit','stand','double','split','bust']
     payout = {'return':3, 'bet':2}
 
-    def __init__(self, dealer, players, shuffler, deck_pen = 1):    
+    def __init__(self, dealer: Player, players : Player, shuffler : ShuffleDeckLw, deck_pen = 1):    
         self.dealer = dealer
         self.players = players      
         self.shuffler = shuffler 
@@ -24,6 +30,10 @@ class Game:
         self.deck_pen = deck_pen 
         #deck/shoe for this round.
         self.deck = self.shuffler()
+
+    def _next_player_index(self):
+        #create a clock that will keep track of player order using modulus.
+        return next(self.clock) % self.counter
 
     def draw_card(self, n = 1):
         #draw n numbers of cards for the shoe/deck.
@@ -67,6 +77,13 @@ class Game:
 
  
     def _new_game(self):
+        '''
+        Starts a new round. 
+        Creates a new shoe, checks if the players have enough in their balance to move to the next round, if not they are made inactive.
+        Clears the hands of the players and the dealers.
+        Resets the clock.
+        Draws players cards.
+        '''
          #reset dealer attributes.
         self.dealer.clear_hand()
         #reset player attributes.
@@ -88,10 +105,6 @@ class Game:
             self.drawn = 0 
             self.deck = self.shuffler()
     
-    def _next_player_index(self):
-        #create a clock that will keep track of player order using modulus.
-        return next(self.clock) % self.counter
-
     @property
     def round_over(self): 
         if all(p.wait for p in self._active_players) and self.dealer.wait:
@@ -156,7 +169,6 @@ class Game:
                     #dealer bust.
                     self._player_outcome_win(hand, hand.blackjack )
     
-
     @classmethod
     def _player_outcome_loss(cls, hand):
         hand.owner.balance -= hand.bet
@@ -189,7 +201,6 @@ class Game:
             hand.wait = True
             if hand.bust: self._player_outcome_loss(hand)
        
-
     def _stand(self, hand):
         hand.wait = True
         hand.next_move = None
