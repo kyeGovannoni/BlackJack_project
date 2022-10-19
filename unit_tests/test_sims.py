@@ -6,7 +6,20 @@ import os
 
 class CountDistributionTest(unittest.TestCase):
 
+    
     def test_one_deck_one_sim_total_count(self):
+        '''
+        This test if from the simulation count_distribution.py located in /sims.
+        The simulation returns a frequency of running counts based on a shoe.
+        
+        This test determines that the total frequency is correct given that there is:
+            One deck of 52 cards in the shoe.
+            The simulation is only run once.
+            The penetration on the shoe is 100% (all cards are used before end of round).
+
+        Based on this criteria there should be a total frequency of 52.    
+        '''
+     
         decks = 1
         sims = 1 
         pen = 1
@@ -27,7 +40,7 @@ class CountDistributionTest(unittest.TestCase):
 
         dist = self._load_json_file(filepath = filepath)    
         self._remove_file(filepath = filepath)
-        
+
         self.assertEqual(52, sum(dist.values()))
 
     def _remove_file(self, filepath):
