@@ -1,5 +1,9 @@
+
+import sys
+sys.path.append('/home/kye/Documents/projects_/backjack_lw/blackjack/core_game')
+
 import unittest
-from shuffle import ShuffleDeckLw, card_total, TestDeck
+from blackjack.core_game.shuffle import ShuffleDeckLw, card_total, TestDeck
 
 
 class ShoeCountTest(unittest.TestCase):

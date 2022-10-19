@@ -1,7 +1,11 @@
 import unittest
-from players import Dealer, Player, Hand, DealersHand
-from game import MainGame
-from shuffle import ShuffleDeckLw, card_total, TestDeck
+import sys
+sys.path.append('/home/kye/Documents/projects_/backjack_lw/blackjack/core_game')
+
+from blackjack.core_game.players import Dealer, Player, Hand, DealersHand
+from blackjack.core_game.game import MainGame
+from blackjack.core_game.shuffle import ShuffleDeckLw, card_total, TestDeck
+
 
 class PlayerAttrTestCase(unittest.TestCase):
 

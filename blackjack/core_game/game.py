@@ -1,7 +1,6 @@
 from itertools import count, islice
 from shuffle import  ShuffleDeckLw
 from players import Player, Hand, Dealer, DealersHand
-from basicstrategy import basic_strategy_hard_totals 
 
 class Game:
     '''

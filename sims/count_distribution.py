@@ -20,7 +20,7 @@ from json import dumps
 import argparse
 import os.path
 
-sys.path.append('/home/kye/Documents/projects_/backjack_lw')
+sys.path.append('/home/kye/Documents/projects_/backjack_lw/blackjack/core_game')
 from shuffle import ShuffleDeckLw
 
 #script arguments.

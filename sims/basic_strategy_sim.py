@@ -1,9 +1,18 @@
-from game import Dealer, Player
-from game import MainGame
-from shuffle import ShuffleDeckLw, card_total
+import sys
+
+sys.path.append('/home/kye/Documents/projects_/backjack_lw/blackjack/core_game')
+sys.path.append('/home/kye/Documents/projects_/backjack_lw/blackjack/strategies')
+
+
+from game import Player, Dealer, MainGame
+from shuffle import ShuffleDeckLw
 from basicstrategy import basic_strategy_hard_totals
 
+'''
+This file is used to simulate a game strategy called basic strategy. 
+The play instruction are returned from basicstrategy.basic_strategy_hard_totals
 
+'''
 
 
 p = Player(100,5)
